@@ -165,7 +165,7 @@
         
     }
     body.realestate_version .header_style_01 {
-        background-color: #ffffff;
+        background-color: #000;
     }
     .footer .col-xs-12 {
         margin: 15px 0;
@@ -201,9 +201,9 @@
         z-index: 111;
     }
     .navbar-default .navbar-toggle {
-        border-color: #076799;
-        color: #ffffff ;
-        background-color: #076799;
+            border-color: #5cc428;
+            color: #ffffff;
+            background-color: #5cc428;
     }
     .navbar-default .navbar-collapse,
     .navbar-default .navbar-form {
@@ -410,10 +410,36 @@
     .section-title p {
         font-size: 14px;
         line-height: 25px;
+        padding: 20px;
+    }.view_materials_left_ {
+        background: #80FA7C;
+        padding: 40px 11px 32px;
+    }.view_materials_right_ {
+        background: #54F24E;
+        padding: 40px 11px 32px;
     }
     .section-title h3 {
         font-size: 28px;
-    }
+    }.section {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 45px 0px 9px;
+}
+
+.how_it_w img{
+   height: 389px;
+    width: 341px;
+ }
+ .section-title p {
+    color: #999;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 33px;
+    margin: 0;
+    text-align: justify;
+    margin-bottom: 31px;
+}
     .portfolio-filter ul li .btn-dark {
         border: 0 !important;
         width: 100%;
