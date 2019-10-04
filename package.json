@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"client-install": "npm install --prefix client",
-		"start": "node app.js",
+		"start": "node app.js"
 	},
 	"dependencies": {
 		"body-parser": "^1.19.0",
