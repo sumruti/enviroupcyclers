@@ -74,12 +74,12 @@ body, html {
   animation-delay: 12s;
 }
 
-.slideshow li:nth-child(4) span {
+/*.slideshow li:nth-child(4) span {
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/203277/spring-slide.jpg);
   -webkit-animation-delay: 18s;
   -moz-animation-delay: 18s;
   animation-delay: 18s;
-}
+}*/
 
 @-webkit-keyframes imageAnimation {
   0% {
