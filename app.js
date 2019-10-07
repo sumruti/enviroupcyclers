@@ -26,4 +26,12 @@ app.get('/contact-us', function(req, res){
 	res.render('contact_us');
 });
 
+app.get('/item-description', function(req, res){
+	res.render('item_description');
+});
+
+app.get('/receive-disposal-quote', function(req, res){
+	res.render('receive_disposal_quote');
+});
+
 app.listen(port, () => console.log("Server started on port " + port));
