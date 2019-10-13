@@ -1,95 +1,57 @@
 include Layout/header
 
 #testimonials.section.lb
-  .container
+  .container#scrrol
     .section-title.about_tab_.row.text-center
       h1(style='margin-bottom:27px') Items available
       .col-sm-2.available_button
-        a.btn(href='') All items
+        a.btn(href='#scrrol',onclick='filter("All items")') All items
       .col-sm-2.available_button.col-half-offset
-        a.btn(href='') Oils & Greases
+        a.btn(href='#scrrol',onclick='filter("Oils & Greases")') Oils & Greases
       .col-sm-2.available_button.col-half-offset
-        a.btn(href='') Chemicals
+        a.btn(href='#scrrol',onclick='filter("Chemicals")') Chemicals
       .col-sm-2.available_button.col-half-offset
-        a.btn(href='') Construction materials
+        a.btn(href='#scrrol',onclick='filter("Construction materials")') Construction materials
       .col-sm-2.available_button.col-half-offset
-        a.btn(href='') Plastics
+        a.btn(href='#scrrol',onclick='filter("Plastics")') Plastics
     // end title
     // end container
 // end section
 #testimonials.section.lb(style='background-color: #F2F3F5;')
   .container
-    .row
-      .col-md-4
-        figure.card_.card-product
-          ._item_name
-            a.btn.btn-sm.btn-primary(href='')
-              span.price-new Oil & Greases
-          .img-wrap
-            img(src='https://sherwin.scene7.com/is/image/sw/color-swatch?_tparam_size=250,250&layer=comp&_tparam_color=BEC1C3')
-          .view_item
-            a.btn.btn-sm.btn-primary.float-right.price_(href='/item-description')
-              span.price-new View item
-          figcaption.info-wrap
-            h4.title.pro_tit_ Lithium Grease
-            p.desc SHELL GADUS 400 205L drums
-            .rating-wrap
-              .label-rating Total avaible: 6 drums
-            // rating-wrap.//
-            .rating-wrap
-              .label-rating Condition: Good
-            // rating-wrap.//
-          .bottom-wrap
-            a.btn.btn-sm.btn-primary.float-right.price_(href='')
-              span.price-new $1250 PER DRUM
-          // bottom-wrap.//
-          // col //
-      .col-md-4
-        figure.card_.card-product
-          ._item_name
-            a.btn.btn-sm.btn-primary(href='')
-              span.price-new Oil & Greases 
-          .img-wrap
-            img(src='https://sherwin.scene7.com/is/image/sw/color-swatch?_tparam_size=250,250&layer=comp&_tparam_color=BEC1C3')
-          .view_item
-            a.btn.btn-sm.btn-primary.float-right.price_(href='/item-description')
-              span.price-new View item
-          figcaption.info-wrap
-            h4.title.pro_tit_ Engine Oil
-            p.desc Castrol GTX PRO 205L drums
-            .rating-wrap
-              .label-rating Total avaible: 6 drums
-            // rating-wrap.//
-            .rating-wrap
-              .label-rating Condition: Good
-          .bottom-wrap
-            a.btn.btn-sm.btn-primary.float-right.price_(href='')
-              span.price-new $500 PER CONTAINER
-          // bottom-wrap.//
-          // col //
-      .col-md-4
-        figure.card_.card-product
-          ._item_name
-            a.btn.btn-sm.btn-primary(href='')
-              span.price-new Plastics
-          .img-wrap
-            img(src='https://sherwin.scene7.com/is/image/sw/color-swatch?_tparam_size=250,250&layer=comp&_tparam_color=BEC1C3')
-          .view_item
-            a.btn.btn-sm.btn-primary.float-right.price_(href='/item-description')
-              span.price-new View item
-          figcaption.info-wrap
-            h4.title.pro_tit_ Plastics
-            p.desc SILICA ADDITIVE D75 1000 litre container
-            .rating-wrap
-              .label-rating Total avaible: 6 drums
-            // rating-wrap.//
-            .rating-wrap
-              .label-rating Condition: Good
-          .bottom-wrap
-            a.btn.btn-sm.btn-primary.float-right.price_(href='')
-              span.price-new $2500 PER DRUM
-          // bottom-wrap.//
-          // col //
+    .row#div_blank_
+      - for (var i = 0; i < data.length ; ++i) {
+          .col-md-4.pagi 
+            figure.card_.card-product
+              ._item_name
+                a.btn.btn-sm.btn-primary(href='')
+                  span.price-new #{data[i].broadcategory}
+              .img-wrap
+                img(src='https://sherwin.scene7.com/is/image/sw/color-swatch?_tparam_size=250,250&layer=comp&_tparam_color=BEC1C3')
+              .view_item
+                a.btn.btn-sm.btn-primary.float-right.price_(href='/item-description')
+                  span.price-new View item
+              figcaption.info-wrap
+                h4.title.pro_tit_  #{data[i].category}
+                p.desc #{data[i].brand} #{data[i].itemdescription}
+                p.desc #{(data[i].totalvolume) ? data[i].totalvolume : "N/A"}
+                .rating-wrap
+                  .label-rating Total avaible: #{data[i].totalavailable}
+                // rating-wrap.//
+                .rating-wrap
+                  .label-rating Condition: #{data[i].condition}
+                // rating-wrap.//
+              .bottom-wrap
+                a.btn.btn-sm.btn-primary.float-right.price_(href='')
+                  span.price-new  $ #{data[i].price} PER DRUM
+      - } 
+
+    .row  
+      .col-md-4 
+      .col-md-4.text-center 
+         ul#pagin
+      .col-md-4    
+      
 
 
 
@@ -97,3 +59,59 @@ include Layout/header
 
 
 include Layout/footer
+script.
+  pageSize = 9;
+
+  var pageCount =  $(".pagi").length / pageSize;
+    
+     for(var i = 0 ; i<pageCount;i++){
+        
+       $("#pagin").append('<li><a href="#scrrol" >'+(i+1)+'</a></li> ');
+     }
+        $("#pagin li").first().find("a").addClass("current")
+    showPage = function(page) {
+      $(".pagi").hide();
+      $(".pagi").each(function(n) {
+          if (n >= pageSize * (page - 1) && n < pageSize * page)
+              $(this).show();
+      });        
+  }
+    
+  showPage(1);
+
+  $("#pagin li a").click(function() {
+      $("#pagin li a").removeClass("current");
+      $(this).addClass("current");
+      showPage(parseInt($(this).text())) 
+  });
+
+  function filter(value){
+    var request = $.ajax({
+          url: "/filter_data",
+          type: "POST",
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          data: JSON.stringify({value : value}),
+          
+        });
+
+        request.done(function(data) {
+           $("#div_blank_").html('');
+             console.log(data.data);
+             var result =data.data ;
+           for(let i = 0;i < result.length; i++){
+
+               var html = '<div class="col-md-4 pagi" style="display: block;"> <figure class="card_ card-product"><div class="_item_name"><a href="" class="btn btn-sm btn-primary"><span class="price-new">'+result[i].broadcategory+'</span></a></div><div class="img-wrap"><img src="https://sherwin.scene7.com/is/image/sw/color-swatch?_tparam_size=250,250&amp;layer=comp&amp;_tparam_color=BEC1C3"></div><div class="view_item"><a href="/item-description" class="btn btn-sm btn-primary float-right price_"><span class="price-new">View item</span></a></div><figcaption class="info-wrap"><h4 class="title pro_tit_"> '+result[i].category+'</h4><p class="desc">'+result[i].brand+" "+result[i].itemdescription+ '</p><p class="desc">'+result[i].totalvolume+'</p><div class="rating-wrap"><div class="label-rating">Total avaible: '+result[i].totalavailable+'</div></div><!-- rating-wrap.//--><div class="rating-wrap"><div class="label-rating">Condition: '+result[i].condition+'</div></div><!-- rating-wrap.//--></figcaption><div class="bottom-wrap"><a href="" class="btn btn-sm btn-primary float-right price_"><span class="price-new"> $ '+result[i].price+' PER DRUM</span></a></div></figure></div>';
+               $("#div_blank_").append(html);
+
+           }
+
+            
+        
+        });
+
+        request.fail(function(jqXHR, textStatus) {
+          alert( "Request failed: " + textStatus );
+        });
+  }

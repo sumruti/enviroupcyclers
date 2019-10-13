@@ -359,7 +359,20 @@
 	}
 	.all-title-box{
 		text-align: center;
-	}
+    }
+    .lead {
+        color: #767676;
+        margin: 0;
+        padding: 0;
+        font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+        font-size: 12px!important;
+        line-height: normal;
+    }
+    body.realestate_version .grd1 {
+        padding: 10px!important;
+        font-size: 15px; 
+    }
+
 	#breadcrumbs{
 		position: relative;
 		-webkit-transform: translateY(0%);
@@ -509,5 +522,8 @@
 	}
 	.contact_form{
 		padding: 20px 20px;
-	}
+    }
+    .big-tagline.clearfix{
+        padding: 0px!important;
+    }
 }

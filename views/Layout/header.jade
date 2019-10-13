@@ -57,6 +57,8 @@ html(lang='en')
               li
                 a(href='/about-us') About us 
               li
+                a(href='/waste-disposal') Waste Disposal
+              li
                 a(href='/items-available') Items available
               li
                 a(href='/contact-us') Contact Us
@@ -72,12 +74,18 @@ html(lang='en')
     .parallax.first-section
       .container
         .row
-          .col-md-8.col-sm-12
-            .big-tagline.clearfix
+          .col-md-10.col-sm-12
+            .big-tagline.clearfix(style="padding: 50px;")
               h2 180 Enviro Upcyclers
               p.lead
-                | Receive and reintroduce quality materials back into the economy.Reducing waste, decreasing costs of production, reducing the need to re-produce and re-ship.
-              a.btn.btn-light.btn-radius.grd1.btn-brd(data-scroll='', href='/items-available') View items available now
+                | Receive and reintroduce quality materials back into the economy. 
+                br
+                |Reducing waste, decreasing costs of production, reducing the need
+                br
+                |to re-produce and re-ship.
+                br
+                
+              a.btn.btn-light.btn-radius.grd1.btn-brd(data-scroll='', href='/items-available', style="margin-top: 15px; font-weight: 500;") View items available now
           .col-md-4.wow.slideInLeft.hidden-xs.hidden-sm
         // end row
         // end container
