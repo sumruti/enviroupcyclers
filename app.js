@@ -4,7 +4,6 @@ const path = require("path");
 const request = require("request");
 
 app.use(express.static(path.join(__dirname, 'asset')));
-var ftpClient = require('ftp-client');
 var GoogleSpreadsheet = require('google-spreadsheet');
 var async = require('async');
 var moment = require('moment');
